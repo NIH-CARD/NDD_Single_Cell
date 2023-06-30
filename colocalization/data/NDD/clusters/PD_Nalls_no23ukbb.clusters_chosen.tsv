@@ -1,0 +1,2 @@
+GWAS	cM_threshold	cluster	CHR	bp_start	bp_stop	cM_start	cM_stop	nSNPs_in_cluster	extended_bp_start	extended_bp_stop
+PD_Nalls_no23ukbb	0.04	1	17	44192923	44248042	69.3001969653299	69.3336417759131	2	44077030	44215154
