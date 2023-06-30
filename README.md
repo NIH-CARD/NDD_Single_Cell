@@ -4,7 +4,6 @@ This repository contains the code associated with the manuscript:
 
 ## **Human brain single nucleus cell type enrichments in neurodegenerative diseases**
 
-Authors
 Chelsea X. Alvarado<sup>1,2,3</sup>,
 Cory A. Weller<sup>1,2,3</sup>,
 Nicholas Johnson<sup>1,2,3</sup>,
