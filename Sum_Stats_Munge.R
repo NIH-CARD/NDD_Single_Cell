@@ -19,60 +19,60 @@ library(MungeSumstats)
 ## GWAS
 
 # paths to sum stats
-AD_gwas = "/Users/alvaradocx/Documents/single_cell/AD_Bellenguez_sumstats.txt"
-PD_gwas = "/Users/alvaradocx/Documents/single_cell/PD_nalls_sumstats.txt"
-PD_meta_gwas = "/Users/alvaradocx/Documents/single_cell/PD_META_sumstats.txt"
-LBD_gwas = "/Users/alvaradocx/Documents/single_cell/LBD_Chia_sumstats.txt"
-PSP_gwas = "/Users/alvaradocx/Documents/single_cell/PSP_sumstats37.txt"
-FTLD_gwas = "/Users/alvaradocx/Documents/single_cell/FTLD_GWAS37.csv"
-FTLD2_gwas = "/Users/alvaradocx/Documents/single_cell/FTLD_gwas38_test.txt"
-ALS_gwas = "/Users/alvaradocx/Documents/single_cell/ALS_sumstats38.txt"
-ALS_vg_gwas = "/Users/alvaradocx/Documents/single_cell/GCST90027164_buildGRCh37.tsv.gz"
+AD_gwas = "~/Documents/single_cell/AD_Bellenguez_sumstats.txt"
+PD_gwas = "~/Documents/single_cell/PD_nalls_sumstats.txt"
+PD_meta_gwas = "~/Documents/single_cell/PD_META_sumstats.txt"
+LBD_gwas = "~/Documents/single_cell/LBD_Chia_sumstats.txt"
+PSP_gwas = "~/Documents/single_cell/PSP_sumstats37.txt"
+FTLD_gwas = "~/Documents/single_cell/FTLD_GWAS37.csv"
+FTLD2_gwas = "~/Documents/single_cell/FTLD_gwas38_test.txt"
+ALS_gwas = "~/Documents/single_cell/ALS_sumstats38.txt"
+ALS_vg_gwas = "~/Documents/single_cell/GCST90027164_buildGRCh37.tsv.gz"
 
 # munge
 AD_formatted <- MungeSumstats::format_sumstats(path=AD_gwas,
-                                           save_path = "/Users/alvaradocx/Documents/single_cell/AD_Bellenguez.formatted.tsv",
+                                           save_path = "~/Documents/single_cell/AD_Bellenguez.formatted.tsv",
                                            ref_genome ="GRCh38",
                                            force_new = TRUE)
 
 PD_formatted <- format_sumstats(path=PD_gwas,  # for PD sums stats we want to liftover to GR38 since the other two dx sum stats +single cell expression data 
-                                save_path = "/Users/alvaradocx/Documents/single_cell/PD_Nalls_no23.formatted.tsv", 
+                                save_path = "~/Documents/single_cell/PD_Nalls_no23.formatted.tsv", 
                                 ref_genome ="GRCh37",
                                 convert_ref_genome = "GRCh38",
                                 force_new = TRUE)
 
 PD_gwas_formatted <- format_sumstats(path=PD_meta_gwas, 
-                                save_path = "/Users/alvaradocx/Documents/single_cell/PD_Nalls.formatted.tsv", 
+                                save_path = "~/Documents/single_cell/PD_Nalls.formatted.tsv", 
                                 ref_genome ="GRCh38",
                                 force_new = TRUE)
 
 LBD_formatted <- format_sumstats(path=LBD_gwas, 
-                                 save_path = "/Users/alvaradocx/Documents/single_cell/LBD_Chia.formatted.tsv", 
+                                 save_path = "~/Documents/single_cell/LBD_Chia.formatted.tsv", 
                                  ref_genome ="GRCh38")
 
 FTLD_formatted <- format_sumstats(path=FTLD_gwas, 
-                                 save_path = "/Users/alvaradocx/Documents/single_cell/FTLD_Pottier.formatted.tsv", 
+                                 save_path = "~/Documents/single_cell/FTLD_Pottier.formatted.tsv", 
                                  ref_genome = "GRCh37",
                                  convert_ref_genome = "GRCh38")
 
 PSP_formatted <- format_sumstats(path=PSP_gwas, 
-                                 save_path = "/Users/alvaradocx/Documents/single_cell/PSP_Hoglinger.formatted.tsv", 
+                                 save_path = "~/Documents/single_cell/PSP_Hoglinger.formatted.tsv", 
                                  ref_genome = "GRCh37",
                                  convert_ref_genome = "GRCh38",
                                  force_new = TRUE)
 ALS_formatted <- format_sumstats(path=ALS_gwas, 
-                                 save_path = "/Users/alvaradocx/Documents/single_cell/ALS_Nicolas.formatted.tsv", 
+                                 save_path = "~/Documents/single_cell/ALS_Nicolas.formatted.tsv", 
                                  ref_genome = "GRCh37",
                                  convert_ref_genome = "GRCh38")
 
 ALS_vg_formatted <- format_sumstats(path=ALS_vg_gwas, 
-                                 save_path = "/Users/alvaradocx/Documents/single_cell/ALS_vanRheenen.formatted.tsv", 
+                                 save_path = "~/Documents/single_cell/ALS_vanRheenen.formatted.tsv", 
                                  ref_genome = "GRCh37",
                                  convert_ref_genome = "GRCh38")
 
 ALS_vg
 FTLD2_formatted <- format_sumstats(path=FTLD_gwas, 
-                                  save_path = "/Users/alvaradocx/Documents/single_cell/FTLD2_Pottier.formatted.tsv", 
+                                  save_path = "~/Documents/single_cell/FTLD2_Pottier.formatted.tsv", 
                                   ref_genome = "GRCh38")
 
 
@@ -131,7 +131,7 @@ datasets <- MungeSumstats::import_sumstats(ids = "ebi-a-GCST005647",
 ALSvcfPth <- "/var/folders/9f/hk0dc7qs6gq4v044z86h86vx5t281n/T//Rtmp0kaRkU/ebi-a-GCST005647/ebi-a-GCST005647.tsv.gz"
 reformatted_vcf <- 
   MungeSumstats::format_sumstats(path=ALSvcfPth, 
-                                 save_path = "/Users/alvaradocx/Documents/single_cell/ALS_Nicolas_mungess.formatted.tsv", 
+                                 save_path = "~/Documents/single_cell/ALS_Nicolas_mungess.formatted.tsv", 
                                  ref_genome="GRCh37",
                                  convert_ref_genome = "GRCh38",
                                  force_new = TRUE)

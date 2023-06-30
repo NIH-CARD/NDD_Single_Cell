@@ -6,15 +6,15 @@ library(EWCE)
 library(knitr)
 
 # paths to formatted_sumstats
-ad_sum <- "/Users/alvaradocx/Documents/single_cell/AD_Bellenguez.formatted.tsv" # weird path set up needed? don't include MAGMA_Files in path only everything before and the original sumstats name?
-lbd_sum <- "/Users/alvaradocx/Documents/single_cell/LBD_Chia.formatted.tsv"
-pd_sum <- "/Users/alvaradocx/Documents/single_cell/PD_Nalls.formatted.tsv"
-als_sum <- "/Users/alvaradocx/Documents/single_cell/ALS_vanRheenen.formatted.tsv"
-psp_sum <-"/Users/alvaradocx/Documents/single_cell/PSP_Hoglinger.formatted.tsv"
-ftld_sum <- "/Users/alvaradocx/Documents/single_cell/FTLD_Pottier.formatted.tsv"
+ad_sum <- "~/Documents/single_cell/AD_Bellenguez.formatted.tsv" # weird path set up needed? don't include MAGMA_Files in path only everything before and the original sumstats name?
+lbd_sum <- "~/Documents/single_cell/LBD_Chia.formatted.tsv"
+pd_sum <- "~/Documents/single_cell/PD_Nalls.formatted.tsv"
+als_sum <- "~/Documents/single_cell/ALS_vanRheenen.formatted.tsv"
+psp_sum <-"~/Documents/single_cell/PSP_Hoglinger.formatted.tsv"
+ftld_sum <- "~/Documents/single_cell/FTLD_Pottier.formatted.tsv"
 
 # path to ctd file
-ctd_path <- "/Users/alvaradocx/Documents/single_cell/ctd_adult_cluster_genes.rda" 
+ctd_path <- "~/Documents/single_cell/ctd_adult_cluster_genes.rda" 
 
 # load in CTD
 ctd <- load_rdata(ctd_path)
