@@ -19,10 +19,12 @@ Mike Nalls<sup>1,2,3</sup>
 
 <sup>3</sup> Data Tecnica International LLC, Washington, DC, USA
 
-Correspondence
-Dr. Mike Nalls
-Center for Alzheimer’s and Related Dementias
-National Institute on Aging, Intramural Research Program at the National Institutes of Health
-Building T44
-Bethesda, MD 20892, USA
+---
+
+**Correspondence**<br>
+Dr. Mike Nalls<br>
+Center for Alzheimer’s and Related Dementias<br>
+National Institute on Aging, Intramural Research Program at the National Institutes of Health<br>
+Building T44<br>
+Bethesda, MD 20892, USA<br>
 E-Mail: mike@datatecnica.com 
