@@ -1,6 +1,4 @@
-# sc-colocalization
-
-
+# Colocalization workflow
    
 ## Collecting significant tissue (eQTL GWAS) data
 Generate full tissue eQTL GWAS files using [`retrieve-smr.sh`](src/retrieve-smr.sh). Importantly, the
