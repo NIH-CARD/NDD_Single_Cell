@@ -120,6 +120,35 @@ extend_clusters <- function(DT, cM_to_extend) {
 }
 
 
+expand_selected_cluster <- function(DT, clusters, cM_threshold) {
+  clusters_split <- split(clusters, 1:nrow(clusters)) 
+  
+  cl_expanded <- lapply(clusters_split, function(cluster) {
+    chr = cluster$CHR
+    bp_start = cluster$bp_start
+    
+    o <- copy(DT)
+    o <- o[CHR == chr & BP >= bp_start, ]
+    o[, tf:= ifelse(cM_between_SNPs <= cM_threshold, TRUE, FALSE)]
+    o[ is.na(nextSNP), tf := FALSE]
+    o.sub <- o[1:unique(c(which(o$tf == FALSE), nrow(o)))[1]]
+    o.sub[, 'cluster' := cluster$cluster]
+    o.sub[, tf := NULL]
+    
+    o2 <- o.sub[, list('bp_start'=min(BP),
+                       'bp_stop'=max(BP),
+                       'cM_start'=min(cM),
+                       'cM_stop'=max(cM),
+                       'nSNPs_in_cluster'=.N), by=list(CHR,cluster)]
+    o2[, 'cM_threshold' := cM_threshold]
+    return(o2)
+  })
+  cl_expand_df = as.data.frame(do.call(rbind, cl_expanded))
+  return(cl_expand_df)
+}
+
+
+
 #### RUN ###########################################################################################
 
 # Import recombination rates
@@ -191,6 +220,15 @@ ggsave(g2, file=paste0(OUT_STEM, '.clusters_frac.png'), width=10, height=10, uni
 clusters <- extend_clusters(clusters[cM_threshold==selected_cM_threshold], selected_cM_threshold/2)
 
 fwrite(clusters, file=paste0(OUT_STEM, '.clusters_chosen.tsv'), quote=F, row.names=F, col.names=T, sep='\t')
+
+
+# Expand clusters to include non significant snps
+gwas_name = "/home/rstudio/longgwas/data/gwas/nalls_gwas_wheader.tsv" # Sign and non sign
+gwas_full <- get_gwas_hits(gwas_name)
+expanded_cluster = expand_selected_cluster(DT = gwas_full, 
+                                           clusters = clusters,
+                                           cM_threshold = selected_cM_threshold)
+fwrite(expanded_cluster, file=paste0(OUT_STEM, '.clusters_chosen_expanded.tsv'), quote=F, row.names=F, col.names=T, sep='\t')
 
 quit(status=0)
 
